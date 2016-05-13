@@ -8,7 +8,7 @@ var callbackServer = function(request, response){
 	response.writeHeader(200, {'Content-Type': 'text/html'});
 
 	if(result == "/" || result == "/main"){
-		fs.readFile(__dirname + '/main.html', function(err, html){
+		fs.readFile(__dirname + '/html/main.html', function(err, html){
 			
 			if(err){
 				throw err;
@@ -19,7 +19,7 @@ var callbackServer = function(request, response){
 		});
 	
 	}else if(result == "/contact"){
-		fs.readFile('./contact.html', function(err, html){
+		fs.readFile('/html/contact.html', function(err, html){
 			if(err){
 				throw err;
 			}
@@ -29,11 +29,11 @@ var callbackServer = function(request, response){
 		});
 	
 	}else{
-		fs.readFile(__dirname+'/error.html', function(err, html){
+		fs.readFile(__dirname+'/html/error.html', function(err, html){
 			if(err){
 				throw err;
 			}
-			
+
 			response.write(html);
 			response.end();
 		});
